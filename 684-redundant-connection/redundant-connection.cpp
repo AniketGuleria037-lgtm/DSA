@@ -18,7 +18,7 @@ int find_set(vector<int> &parent, int a) {
         vector<int> Size(n+1);
         vector<int> ans(2);
 
-        for(int j = 0; j<n; j++) {
+        for(int j = n-1; j>=0; j--) {
             for(int i=0; i<=n; i++) {
                 parent[i] = i;
                 Size[i] = 1;
@@ -35,7 +35,7 @@ int find_set(vector<int> &parent, int a) {
                     if(find_set(parent, i) != u) c++;
                 }
             }
-            if(c == 1) ans = edges[j];
+            if(c == 1) return ans = edges[j];
         }
         return ans;
     }
